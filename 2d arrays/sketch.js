@@ -1,4 +1,4 @@
-// 2d Array Demo
+// 2d Array Demo Game
 
 let grid;
 let cellWidth;
