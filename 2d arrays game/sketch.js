@@ -3,10 +3,15 @@
 // October 1st, 2020
 
 
-// 
+// I couldnt figure out VSCode on my laptop so I wasn't able to finish what I wanted to get done for the weekend. However, I have all of the requirenments for 
+// the 2d arrays and will work on making this game have more features and look better for the final project. One thing that I did was crop pictures and assign them to each grid
+// and made sure they would move and change coordinates each time they were clicked. I'm still so sorry about the bad visual appeal and my non functioning state variables
+// but I was trying to work on that but had to delete it becuase I couldnt test it. 
+
+// to start the game press the "s" key
 
 const GRIDSIZE = 3;
-let state = "title";
+// let state = "title";
 let cellSize;
 let grid = [[1,2,3],
   [4,5,6],
@@ -40,16 +45,17 @@ function setup() {
 } 
 
 function draw() {
-  switchScreens();
+  displayGrid();
+  //switchScreens();
 }
 
-function switchScreens(){
-  if (state === "title"){
-    titlePage();
-  }
-  else if (state === "game" ){
-    shuffleImage();
-  }
+//function switchScreens(){   // function I was working on but couldn't complete
+//   if (state === "title"){
+//     titlePage();
+//   }
+//   else if (state === "game" ){
+//     shuffleImage();
+//   }
 //   else if (state === "image"){
 //     imageMode (CENTER);
 //     image(scenery, 0, cellSize / 2, cellSize * 1.5, cellSize * 1.5);
@@ -57,7 +63,7 @@ function switchScreens(){
 //       state = "game";
 //     }
 //   }
-}
+// }
 
 function titlePage(){
   textSize(40);
@@ -68,6 +74,7 @@ function titlePage(){
 }
 
 function displayGrid(){
+  // assigning each image to a grid
   for (let y = 0; y < GRIDSIZE; y++){
     for (let x = 0; x < GRIDSIZE; x++){
       newGrid[y][x] = int(newGrid[y][x]);
@@ -105,6 +112,7 @@ function displayGrid(){
 }
 
 function strokeLines(){
+  // drawing the stroke lines
   strokeWeight(3);
   stroke(255);
   line(0, 0, windowWidth/2 - cellSize*1.5 + 3*cellSize, 0);
@@ -159,6 +167,7 @@ function checkGrid(y, x){
 }
 
 function shuffleImage(){
+  // to randomize the grid (easy mode)
   for (let x = 0; x < GRIDSIZE; x++){
     newGrid [x] = shuffle(grid[x]);
   }
@@ -166,6 +175,7 @@ function shuffleImage(){
 }
 
 function keyPressed(){
+  // to start the game
   if (key === "s"){
     state = "game";
     grid = shuffleImage();
