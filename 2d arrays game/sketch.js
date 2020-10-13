@@ -70,7 +70,7 @@ function titlePage(){
   textAlign (CENTER, CENTER);
   text("Picture Sliding Puzzle Easy Mode", windowWidth / 2, windowHeight / 4);
   text("Press the 's' key to shuffle", windowWidth / 2, windowHeight / 2);
- // text("Press the 'i' key to see the final image", windowWidth / 2, windowHeight / 1.5);
+  // text("Press the 'i' key to see the final image", windowWidth / 2, windowHeight / 1.5);
 }
 
 function displayGrid(){
@@ -177,7 +177,7 @@ function shuffleImage(){
 function keyPressed(){
   // to start the game
   if (key === "s"){
-    state = "game";
+    // state = "game";
     grid = shuffleImage();
   }
 //   if (key === "i"){
