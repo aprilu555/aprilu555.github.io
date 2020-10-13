@@ -3,13 +3,7 @@
 // October 1st, 2020
 
 
-// if the order of the cells is correct, make the game add the last image
-// add numbers to the images
-
-// title page
-// click i to see image
-// fix strokelines
-
+// 
 
 const GRIDSIZE = 3;
 let state = "title";
@@ -47,7 +41,6 @@ function setup() {
 
 function draw() {
   switchScreens();
-  displayFinalGrid();
 }
 
 function switchScreens(){
@@ -57,16 +50,13 @@ function switchScreens(){
   else if (state === "game" ){
     shuffleImage();
   }
-  else if (state === "image"){
-    imageMode (CENTER);
-    image(scenery, 0, cellSize / 2, cellSize * 1.5, cellSize * 1.5);
-    if (mousePressed){ // FIX 
-      state = "game";
-    }
-  }
-  else if (state === "giveUp"){
-    displayFinalGrid();
-  } 
+//   else if (state === "image"){
+//     imageMode (CENTER);
+//     image(scenery, 0, cellSize / 2, cellSize * 1.5, cellSize * 1.5);
+//     if (mousePressed){ // FIX 
+//       state = "game";
+//     }
+//   }
 }
 
 function titlePage(){
@@ -74,8 +64,7 @@ function titlePage(){
   textAlign (CENTER, CENTER);
   text("Picture Sliding Puzzle Easy Mode", windowWidth / 2, windowHeight / 4);
   text("Press the 's' key to shuffle", windowWidth / 2, windowHeight / 2);
-  text("Press the 'i' key to see the final image", windowWidth / 2, windowHeight / 1.5);
-  
+ // text("Press the 'i' key to see the final image", windowWidth / 2, windowHeight / 1.5);
 }
 
 function displayGrid(){
@@ -109,43 +98,6 @@ function displayGrid(){
       }
       if (newGrid[y][x] === 9) {
         rect(x*cellSize, y*cellSize, cellSize, cellSize);
-      }
-    }
-  }
-  strokeLines();
-}
-
-function displayFinalGrid(){
-  for (let y = 0; y < GRIDSIZE; y++){
-    for (let x = 0; x < GRIDSIZE; x++){
-      grid[y][x] = int(grid[y][x]);
-    
-      if (grid[y][x] === 1){
-        image(scenery1, x*cellSize, y*cellSize, cellSize, cellSize);
-      }
-      if (grid[y][x] === 2){
-        image(scenery2, x*cellSize, y*cellSize, cellSize, cellSize);
-      }
-      if (grid[y][x] === 3){
-        image(scenery3, x*cellSize, y*cellSize, cellSize, cellSize);
-      }
-      if (grid[y][x] === 4){
-        image(scenery4, x*cellSize, y*cellSize, cellSize, cellSize);
-      }
-      if (grid[y][x] === 5){
-        image(scenery5, x*cellSize, y*cellSize, cellSize, cellSize);
-      }
-      if (grid[y][x] === 6){
-        image(scenery6, x*cellSize, y*cellSize, cellSize, cellSize);
-      }
-      if (grid[y][x] === 7){
-        image(scenery7, x*cellSize, y*cellSize, cellSize, cellSize);
-      }
-      if (grid[y][x] === 8){
-        image(scenery8, x*cellSize, y*cellSize, cellSize, cellSize);
-      }
-      if (grid[y][x] === 9) {
-        image(scenery9, x*cellSize, y * cellSize, cellSize, cellSize);
       }
     }
   }
@@ -218,12 +170,8 @@ function keyPressed(){
     state = "game";
     grid = shuffleImage();
   }
-  if (key === "i"){
-    image(scenery, 0, 0, cellSize * 3, cellSize * 3);
-    state = "image";
-  }
-  if (key === "g"){
-    state = "giveUp";
-    displayFinalGrid();
-  }
+//   if (key === "i"){
+//     image(scenery, 0, 0, cellSize * 3, cellSize * 3);
+//     state = "image";
+//   }
 }
